@@ -1,26 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Christmas Gallery 🎄</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<title>Happy New Year Purvesh 🎉</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at top, #ff758c, #ff7eb3, #1d2671);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-top: 40px;
+    animation: glow 2s infinite alternate;
+  }
+
+  p {
+    font-size: 18px;
+    margin: 10px 20px;
+    line-height: 1.6;
+  }
+
+  .message {
+    max-width: 600px;
+    margin: auto;
+    animation: fadeUp 2s ease;
+  }
+
+  #qrcode {
+    background: white;
+    padding: 18px;
+    border-radius: 15px;
+    display: inline-block;
+    margin-top: 25px;
+    animation: bounce 2s infinite;
+  }
+
+  .note {
+    margin-top: 15px;
+    font-size: 16px;
+    opacity: 0.95;
+  }
+
+  /* Animations */
+  @keyframes glow {
+    from { text-shadow: 0 0 10px #fff; }
+    to { text-shadow: 0 0 25px #ffeb3b; }
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Confetti */
+  .confetti {
+    position: absolute;
+    width: 8px;
+    height: 14px;
+    background: hsl(var(--hue), 100%, 60%);
+    top: -10px;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(110vh) rotate(360deg);
+    }
+  }
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Christmas Gallery 🎄</h1>
 
-    <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1543589077-47d81606c1bf" />
-      <img src="https://images.unsplash.com/photo-1512389098783-66b81f86e199" />
-      <img src="https://images.unsplash.com/photo-1608889175112-b33f9f3c1c4a" />
-      <img src="https://images.unsplash.com/photo-1545580492-8859ba8323cb" />
-    </div>
+<h1>🎉 Happy New Year Purvesh 🎉</h1>
 
-    <br /><br />
-    <a href="index.html" class="button">Back to Message 🎄</a>
-  </div>
+<div class="message">
+  <p>😂 Another year older… but still no maturity update installed!</p>
+  <p>
+    Jokes apart 💙, thank you for being my constant —  
+    my madness partner, my late-night therapist,  
+    and the reason I smile without any reason.
+  </p>
+  <p>
+    May this New Year bring you success, happiness,  
+    fewer problems, more money 💰,  
+    and a best friend like me forever 😌
+  </p>
+</div>
 
-  <script src="script.js"></script>
+<div id="qrcode"></div>
+
+<p class="note">📱 Scan this QR for your New Year surprise video 🎥✨</p>
+
+<!-- QR Library -->
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script>
+  // 🔴 PASTE YOUR VIDEO LINK HERE
+  const videoLink = "https://your-video-link-here";
+
+  new QRCode(document.getElementById("qrcode"), {
+    text: videoLink,
+    width: 220,
+    height: 220
+  });
+
+  // Confetti generator
+  for (let i = 0; i < 40; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.animationDuration = (Math.random() * 3 + 3) + "s";
+    confetti.style.setProperty("--hue", Math.random() * 360);
+    document.body.appendChild(confetti);
+  }
+</script>
+
 </body>
 </html>
